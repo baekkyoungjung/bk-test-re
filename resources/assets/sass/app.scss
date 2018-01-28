@@ -1,0 +1,320 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+@keyframes blink-loading {
+  0% {
+  	transform: scale(0.5);
+    opacity: 0.3;
+  }
+  50% {
+  	transform: scale(0.6);
+    opacity: 0.7;
+  }
+  100% {
+  	transform: scale(0.5);
+    opacity: 0.3;
+  }
+}
+
+@keyframes zoom-in {
+	0% {
+		transform: scale(1.0);
+	} 
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+body {
+	h3 {
+		font-size: 1.8em;
+		line-height: 1em;
+		font-weight: 200;
+		padding-top: 10px;
+		padding-bottom: 2px;
+		margin-bottom: 0.7em;
+		margin-top: 2.3em;
+		position: relative;
+		text-align: left;
+	}
+	ul {
+		padding: 0;
+		margin: 0;
+	}
+	font-family: 'SDGothicNeocTTF-aUltLt';
+
+	
+	background-attachment: fixed;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0;
+	margin: 0;
+ 
+	#main-wrapper {
+		// background-color: white;
+		#invite-says {
+			font-family: 'notoSans_ko_thin';
+			height: 95vh;
+			font-size: 1em;
+			z-index: 1;
+			.contents {
+				position:fixed;
+				color: #636363;
+				top: 30%;
+				transition: all 1s ease-out;
+				left: 0;
+				width: 100%;
+				font-size: 1.4em;
+				&.move-hidden {
+					opacity: 0;
+				}
+				.up-to-bottom {
+					> h1 {
+						font-weight: 100;
+						font-size: 3em;
+					}
+				}
+				.bottom-to-up {
+					> span {
+						color: rgba(255, 0, 153, 0.43);
+					}
+				}
+			}
+		}
+		> .container {
+			position: relative;
+			z-index: 2;
+			background-color: rgb(255, 255, 255);
+			#hello {
+				max-width: 600px;
+				margin: 0 auto;
+				font-size: 1.2em;
+				img.main-pic {
+					&.on-blur {
+						opacity: 0;
+					}
+					opacity: 1;
+					transition: all 2s linear;
+				}
+				p > span {
+					color: rgba(255, 0, 153, 0.43);
+				}
+			}
+			#location {
+				span {
+					color: rgba(255, 0, 153, 0.43);
+				}
+				max-width: 600px;
+				margin: 0 auto;
+				font-size: 1.2em;
+			}
+			#memories {
+				max-width: 600px;
+				margin: 0 auto;
+				font-size: 1.2em;
+				> .our-pic {
+					margin: 0;
+					> div {
+						overflow: hidden;
+						img {
+							transition: all 300ms linear;
+						}
+						&:hover {
+							img {
+								-webkit-transform: scale(1.02);
+								transform: scale(1.02);
+								opacity: 0.7;
+							}
+						}
+						text-align: center;
+						padding: 2px;
+					}
+				}
+			}
+		}
+		
+	}
+	#more-pic {
+		position: relative;
+		z-index: 2;
+		padding: 20px;
+		font-size: 1.2em;
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+	}
+	#story-wrapper {
+		background-color: #f7f7f7;
+		font-family: 'SDGothicNeoaUniTTF-eMd';
+		font-size: 1em;
+		line-height: 1.7em;
+		> div {
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 15px 0 15px 0;
+		}
+		
+
+		
+		figcaption {
+			line-height: 1.7em;
+			color: #444;
+			font-size: 0.8em;
+		    line-height: 1.4em;
+		    font-family: sans-serif;
+		    opacity: 0.6;
+		    text-align: center;
+		    margin-top: 10px;
+		    margin-bottom: 20px;
+		    &:empty {
+		    	display: none;
+		    }
+		}
+	}
+
+	#now-loading {
+		background-color: #fff;
+		z-index: 999;
+		position: fixed;
+		left: 0;
+		top: 0;
+		// position: relative;
+		width: 100%;
+		height: 100%;
+		opacity: 1;
+		transition: opacity 0.8s ease-out;
+		&.hide-opacity {
+			opacity: 0;
+		}
+		#heart-wrapper {
+			-webkit-animation: blink-loading 1.5s cubic-bezier(0.000, 0.000, 0.580, 1.000) infinite;
+			-moz-animation: blink-loading 1.5s cubic-bezier(0.000, 0.000, 0.580, 1.000) infinite;
+			-ms-animation: blink-loading 1.5s cubic-bezier(0.000, 0.000, 0.580, 1.000) infinite;
+			-o-animation: blink-loading 1.5s cubic-bezier(0.000, 0.000, 0.580, 1.000) infinite;
+			animation: blink-loading 1.5s cubic-bezier(0.000, 0.000, 0.580, 1.000) infinite;
+			position: absolute;
+			width: 100px;
+			height: 90px;
+			left: calc(50% - 50px);
+			top: calc(50% - 45px);
+			#heart:before,
+			#heart:after {
+			    position: absolute;
+			    content: "";
+			    left: 50px;
+			    top: 0;
+			    width: 50px;
+			    height: 80px;
+			    background: red;
+			    -moz-border-radius: 50px 50px 0 0;
+			    border-radius: 50px 50px 0 0;
+			    -webkit-transform: rotate(-45deg);
+			       -moz-transform: rotate(-45deg);
+			        -ms-transform: rotate(-45deg);
+			         -o-transform: rotate(-45deg);
+			            transform: rotate(-45deg);
+			    -webkit-transform-origin: 0 100%;
+			       -moz-transform-origin: 0 100%;
+			        -ms-transform-origin: 0 100%;
+			         -o-transform-origin: 0 100%;
+			            transform-origin: 0 100%;
+			}
+			#heart:after {
+			    left: 0;
+			    -webkit-transform: rotate(45deg);
+			       -moz-transform: rotate(45deg);
+			        -ms-transform: rotate(45deg);
+			         -o-transform: rotate(45deg);
+			            transform: rotate(45deg);
+			    -webkit-transform-origin: 100% 100%;
+			       -moz-transform-origin: 100% 100%;
+			        -ms-transform-origin: 100% 100%;
+			         -o-transform-origin: 100% 100%;
+			            transform-origin :100% 100%;
+			}
+		}
+	}
+}
+h3 > span {
+	color: rgba(255, 0, 153, 0.43);
+}
+
+.zoom-in {
+	overflow: hidden;
+	> img {
+		animation: zoom-in 25s linear infinite;
+	}
+}
+
+.text-bold {
+	font-weight: bold;
+	font-size: 1.07em;
+}
+
+#map {
+    width: 100%;
+	height: 400px;
+}
+
+.p30 {
+	padding: 30px;
+}
+.pt30 {
+	padding-top: 30px;
+}
+.pb30 {
+	padding-bottom: 30px;
+}
+.pl30 {
+	padding-left: 30px;
+}
+.pr30 {
+	padding-right: 30px;
+}
+.flex-wrap {
+	display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+p {
+	word-break: break-all;
+	margin: 20px 0 25px;
+	line-height: 1.8em;
+}
+
+
+
+@font-face {
+	font-family: 'notoSans_ko_thin';
+	src: url('https://s3.ap-northeast-2.amazonaws.com/tyle.io.seoul/web/fonts/notoSans_ko_thin.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'SDGothicNeocTTF-aUltLt';
+	src: url('https://s3.ap-northeast-2.amazonaws.com/tyle.io.seoul/web/fonts/SDGothicNeocTTF-aUltLt.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'SDGothicNeoaUniTTF-eMd';
+	src: url('https://s3.ap-northeast-2.amazonaws.com/tyle.io.seoul/web/fonts/SDGothicNeoaUniTTF-eMd.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'NanumBarunpenR';
+	src: url('https://s3.ap-northeast-2.amazonaws.com/tyle.io.seoul/web/fonts/NanumBarunpenR.woff') format('woff');
+}
